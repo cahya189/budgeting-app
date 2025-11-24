@@ -1,5 +1,20 @@
 ﻿# Project Title
-📘 Aplikasi Penganggaran (Budgeting App)
-📝 Deskripsi Proyek
+# 📘 Aplikasi Penganggaran (Budgeting App)
 
-Aplikasi Penganggaran ini merupakan aplikasi sederhana berbasis HTML, CSS, dan JavaScript yang digunakan untuk mencatat pemasukan dan pengeluaran bulanan. Aplikasi menampilkan saldo total serta riwayat transaksi dengan tampilan modern dan responsif, cocok untuk tugas kuliah maupun latihan front-end.
+## 📝 Deskripsi Proyek
+Aplikasi Penganggaran berbasis HTML, CSS, dan JavaScript untuk mencatat pemasukan dan pengeluaran, menampilkan saldo total, serta riwayat transaksi dengan tampilan yang modern dan responsif.
+
+---
+
+## 🖼️ Tampilan Aplikasi
+
+### Halaman Dashboard
+![Dashboard](images/home.png)
+
+### Halaman Tambah Transaksi
+![Add Page](images/add.png)
+
+---
+
+## 🎨 Desain Figma
+
