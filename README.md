@@ -9,10 +9,10 @@ Aplikasi Penganggaran berbasis HTML, CSS, dan JavaScript untuk mencatat pemasuka
 ## 🖼️ Tampilan Aplikasi
 
 ### Halaman Dashboard
-![Dashboard](images/home.png)
+![Dashboard](halamanutama.png)
 
 ### Halaman Tambah Transaksi
-![Add Page](images/add.png)
+![Add Page](riwayat.png)
 
 ---
 
