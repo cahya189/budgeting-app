@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Data - Responsive</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #EEF2FF;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            max-width: 500px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 18px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+        }
+
+        h2 {
+            text-align: center;
+            color: #4F46E5;
+            margin-bottom: 20px;
+        }
+
+        label { font-weight: 600; }
+
+        select, input {
+            width: 100%;
+            padding: 14px;
+            margin-top: 8px;
+            margin-bottom: 16px;
+            border-radius: 12px;
+            border: 1px solid #A5B4FC;
+            font-size: 16px;
+        }
+
+        .btn {
+            width: 100%;
+            background: #10B981;
+            padding: 14px;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover { background: #059669; }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            text-decoration: none;
+            color: #4F46E5;
+            font-weight: 600;
+        }
+
+        /* Responsif Mobile */
+        @media (max-width: 480px) {
+            body { padding: 12px; }
+
+            select, input { padding: 12px; font-size: 14px; }
+
+            .btn { padding: 12px; font-size: 16px; }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Tambah Transaksi</h2>
+
+    <label>Jenis Transaksi:</label>
+    <select id="jenis">
+        <option value="pemasukan">Pemasukan</option>
+        <option value="pengeluaran">Pengeluaran</option>
+    </select>
+
+    <label>Jumlah (Rp):</label>
+    <input type="number" id="jumlah" placeholder="Masukkan jumlah...">
+
+    <label>Keterangan:</label>
+    <input type="text" id="keterangan" placeholder="Contoh: Gaji, Makan, dll">
+
+    <button class="btn" onclick="simpan()">Simpan</button>
+
+    <a href="index.html" class="back">← Kembali</a>
+</div>
+
+<script>
+    function simpan() {
+        const jenis = document.getElementById("jenis").value;
+        const jumlah = parseInt(document.getElementById("jumlah").value);
+        const ket = document.getElementById("keterangan").value;
+
+        if (!jumlah || !ket) {
+            alert("Lengkapi data!");
+            return;
+        }
+
+        const data = JSON.parse(localStorage.getItem("transaksi")) || [];
+        data.push({ jenis: jenis, jumlah: jumlah, keterangan: ket });
+
+        localStorage.setItem("transaksi", JSON.stringify(data));
+
+        alert("Data berhasil disimpan!");
+        window.location.href = "index.html";
+    }
+</script>
+
+</body>
+</html>

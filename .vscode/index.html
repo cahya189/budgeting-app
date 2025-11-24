@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budgeting App - Responsive</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #EEF2FF;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .saldo-box {
+            text-align: center;
+            padding: 25px;
+            background: #6366F1;
+            color: white;
+            border-radius: 18px;
+            font-size: 34px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        h2, h3 {
+            text-align: center;
+            color: #4F46E5;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 18px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        ul { padding: 0; margin: 0; }
+        li {
+            list-style: none;
+            background: #F5F3FF;
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 16px;
+        }
+
+        .income { color: #10B981; font-weight: bold; }
+        .expense { color: #EF4444; font-weight: bold; }
+
+        /* Tombol Tambah Mengapung di Mobile */
+        .fab {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #4F46E5;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 32px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        /* Media Query Full Responsive */
+        @media (max-width: 480px) {
+            body { padding: 12px; }
+
+            .saldo-box {
+                font-size: 26px;
+                padding: 20px;
+            }
+
+            li {
+                font-size: 14px;
+                padding: 12px;
+            }
+
+            .fab {
+                bottom: 15px;
+                right: 15px;
+                width: 55px;
+                height: 55px;
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 340px) { /* HP kecil seperti iPhone SE */
+            .saldo-box { font-size: 22px; }
+
+            li { font-size: 13px; padding: 10px; }
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Aplikasi Penganggaran</h2>
+
+    <div class="saldo-box" id="saldo">Rp 0</div>
+
+    <div class="card">
+        <h3>Riwayat Transaksi</h3>
+        <ul id="list"></ul>
+    </div>
+
+</div>
+
+<!-- Floating Add Button -->
+<a href="add.html" class="fab">+</a>
+
+<script>
+    function loadData() {
+        const data = JSON.parse(localStorage.getItem("transaksi")) || [];
+        let saldo = 0;
+
+        const list = document.getElementById("list");
+        list.innerHTML = "";
+
+        data.forEach(item => {
+            saldo += item.jenis === "pemasukan" ? item.jumlah : -item.jumlah;
+
+            const li = document.createElement("li");
+            li.innerHTML = `
+                <span>${item.keterangan}</span>
+                <span class="${item.jenis === "pemasukan" ? "income" : "expense"}">
+                    ${item.jenis === "pemasukan" ? "+" : "-"} Rp ${item.jumlah}
+                </span>
+            `;
+            list.appendChild(li);
+        });
+
+        document.getElementById("saldo").innerText = "Rp " + saldo;
+    }
+
+    loadData();
+</script>
+
+</body>
+</html>
