@@ -17,4 +17,4 @@ Aplikasi Penganggaran berbasis HTML, CSS, dan JavaScript untuk mencatat pemasuka
 ---
 
 ## 🎨 Desain Figma
-
+https://www.figma.com/design/i7F3rkGWSdPxVqNKsecFGO/Untitled?node-id=5-5&t=u3hEw1IKzyTyzj8b-1
